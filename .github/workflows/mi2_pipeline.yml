@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ejecutando Tests
-        run: echo "Validando integridad del codigo..." && sleep 5
+        run: exit 1
 
   Despliegue_Produccion:
     needs: Pruebas_Unitarias
