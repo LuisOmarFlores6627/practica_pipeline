@@ -1,0 +1,25 @@
+name: Laboratorio de Pipeline Sistemicos
+on: [push]
+
+jobs:
+  Compilacion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout de codigo
+        uses: actions/checkout@v4
+      - name: Simulando Build
+        run: echo "Compilando binarios..." && sleep 5
+
+  Pruebas_Unitarias:
+    needs: Compilacion
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutando Tests
+        run: echo "Validando integridad del codigo..." && sleep 5
+
+  Despliegue_Produccion:
+    needs: Pruebas_Unitarias
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo "Sistema desplegado exitosamente."
